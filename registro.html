@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro - Galería Virtual</title>
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="registro.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="arte/360_F_432657539_7DuTQOx9Hux8E2yESHxKPWJX8sArkSDi.jpg"
+                    alt="Logo Galería" /></a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="trabajos.html">Trabajos</a></li>
+                <li><a href="artistas.html">Artistas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-right">
+            <div class="user-menu">
+                <i class="fa-solid fa-user" id="userIcon"></i>
+                <div class="login-dropdown" id="loginDropdown">
+                    <form id="loginForm">
+                        <input type="email" id="loginEmail" placeholder="Correo electrónico" required />
+                        <input type="password" id="loginPassword" placeholder="Contraseña" required />
+                        <button type="submit">Iniciar sesión</button>
+                    </form>
+
+                    <p>O con Google</p>
+
+                    <button id="googleLoginBtn" class="google-btn">
+                        <i class="fa-brands fa-google"></i> Iniciar sesión con Google
+                    </button>
+
+                    <p>No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+                </div>
+
+            </div>
+
+            <div class="cart-icon" id="cartIcon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div class="cart-dropdown" id="cartDropdown">
+                    <p>Tu carrito está vacío por ahora.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="register-container">
+        <form class="register-form" id="registerForm">
+            <h2>Crear una cuenta</h2>
+
+            <input type="text" id="nickname" placeholder="Nombre" required />
+
+            <input type="email" id="email" placeholder="Correo electrónico" required />
+            <input type="password" id="password" placeholder="Contraseña" required />
+            <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required />
+
+            <button type="submit">Registrarse</button>
+
+            <p>O con Google</p>
+
+            <button type="button" id="googleRegisterBtn" class="google-btn">
+                <i class="fa-brands fa-google"></i> Registrarse con Google
+            </button>
+
+        </form>
+    </main>
+
+    <footer>
+        <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2025 Galería Virtual | Todos los derechos reservados</p>
+    </footer>
+
+    <script type="module" src="supabase.js"></script>
+    <script type="module" src="mainsesion.js"></script>
+    <script type="module" src="registro.js"></script>
+</body>
+
+</html>

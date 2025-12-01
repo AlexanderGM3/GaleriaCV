@@ -1,0 +1,425 @@
+/* ============================== */
+/* trabajos.css - compatible con tu HTML */
+/* ============================== */
+
+/* Base / fondo */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* Sección principal */
+.work-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Título */
+.work-header h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+    color: #ffd54f;
+    text-align: center;
+}
+
+/* ======================== */
+/* HERRAMIENTAS (BUSCADOR + SUBIR) */
+/* ======================== */
+.work-tools {
+    display: flex;
+    justify-content: center;
+    /* Centra la barra buscador y el botón */
+    align-items: center;
+    gap: 40px;
+    /* Separación más visible entre buscador y botón Subir */
+    margin: 14px auto;
+    width: 95%;
+    max-width: 1100px;
+}
+
+/* Contenedor del buscador */
+.work-tools .search-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    max-width: 450px;
+    /* Para mantenerlo centrado */
+    width: 100%;
+}
+
+#searchWorkInput {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+#searchWorkInput:focus {
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.12);
+}
+
+/* Botón buscar */
+#searchWorkBtn {
+    padding: 9px 16px;
+    border-radius: 20px;
+    border: none;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.18s, transform 0.12s;
+}
+
+#searchWorkBtn:hover {
+    background: #222;
+    transform: translateY(-1px);
+}
+
+/* Botón de subir */
+#uploadWorkBtn {
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: none;
+    background: #2c3e50;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.18s, transform 0.12s;
+}
+
+#uploadWorkBtn:hover {
+    background: #1abc9c;
+    transform: translateY(-1px);
+}
+
+/* Input oculto */
+#workFile.hidden,
+#workFile {
+    display: none;
+}
+
+/* ======================== */
+/* MODAL AGREGAR TRABAJO */
+/* ======================== */
+
+#addWorkForm.modal,
+#addWorkForm.modal.hidden {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+}
+
+#addWorkForm.modal.hidden {
+    display: none;
+}
+
+#addWorkForm .modal-content {
+    width: 92%;
+    max-width: 420px;
+    background: #fff;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    box-sizing: border-box;
+}
+
+/* Cerrar */
+#closeWorkForm {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Vista previa */
+#workImagePreview {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+#workImagePreview.hidden {
+    display: none;
+}
+
+/* Inputs */
+#workName,
+#workPrice,
+#workDescription {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.price-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-input .currency {
+    font-weight: 700;
+    padding-left: 6px;
+}
+
+/* Botón guardar */
+#saveWork {
+    width: 100%;
+    padding: 12px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* ======================== */
+/* GALERÍA */
+/* ======================== */
+
+#workGallery {
+    margin-top: 22px;
+    width: 95%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+/* Tarjetas */
+.work-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.18s, box-shadow 0.18s;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+}
+
+.work-card img,
+.work-card .file-icon {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+    background: #f2f2f2;
+}
+
+.work-card .file-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: #777;
+}
+
+.work-card .art-info {
+    padding: 12px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.work-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #222;
+    font-weight: 700;
+}
+
+.work-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.work-card .price {
+    color: #ffcc00;
+    font-weight: 800;
+}
+
+.work-card .card-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.work-card button {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo para botón en la tarjeta (si se usa) */
+.work-card .delete-btn {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.work-card .buy-btn {
+    background: #1abc9c;
+    color: #fff;
+}
+
+/* ======================== */
+/* MODAL COMENTARIOS/DETALLES */
+/* ======================== */
+
+#workCommentModal.modal,
+#workCommentModal.modal.hidden {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1300;
+}
+
+#workCommentModal.modal.hidden {
+    display: none;
+}
+
+#workCommentModal .modal-content {
+    width: 92%;
+    max-width: 540px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+    box-sizing: border-box;
+}
+
+#modalWorkImage {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+#workCommentsList {
+    max-height: 240px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+}
+
+#workCommentInput,
+#workRatingInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#addWorkCommentBtn {
+    width: 100%;
+    padding: 12px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* ESTILOS DE BOTONES EN MODAL */
+
+/* Botón de Descarga */
+.download-btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    /* Separación con comentarios */
+    background: #3498db;
+    /* Azul para la descarga */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.18s;
+}
+
+.download-btn:hover {
+    background: #2980b9;
+}
+
+/* Botón de Borrar (creado dinámicamente) */
+.delete-file-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    /* Separación de la botonera principal */
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.18s;
+}
+
+.delete-file-btn:hover {
+    background: #c0392b;
+}
+
+
+/* ======================== */
+/* RESPONSIVE */
+/* ======================== */
+
+@media (max-width: 1000px) {
+    .work-tools {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    #workGallery {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    #workGallery {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+
+    #searchWorkInput {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

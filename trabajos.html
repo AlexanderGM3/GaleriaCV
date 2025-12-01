@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería de Trabajos - Galería Virtual</title>
+    <link rel="icon" type="image/png" href="arte/calamardo1.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="trabajos.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="arte/360_F_432657539_7DuTQOx9Hux8E2yESHxKPWJX8sArkSDi.jpg" alt="Logo Galería" />
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="trabajos.html">Trabajos</a></li>
+                <li><a href="artistas.html">Artistas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-right">
+            <div class="user-menu">
+                <i class="fa-solid fa-user" id="userIcon"></i>
+                <div class="login-dropdown" id="loginDropdown">
+                    <form id="loginForm">
+                        <input type="email" id="loginEmail" placeholder="Correo electrónico" required />
+                        <input type="password" id="loginPassword" placeholder="Contraseña" required />
+                        <button type="submit">Iniciar sesión</button>
+                    </form>
+                    <p>O con Google</p>
+                    <button id="googleLoginBtn" class="google-btn">
+                        <i class="fa-brands fa-google"></i> Iniciar sesión con Google
+                    </button>
+                    <p>¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+                </div>
+            </div>
+
+            <div class="cart-icon" id="cartIcon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div class="cart-dropdown" id="cartDropdown">
+                    <p>Tu carrito está vacío por ahora.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="work-section">
+            <div class="work-header">
+                <h2>Galería</h2>
+            </div>
+
+            <div class="work-tools">
+                <div class="search-container">
+                    <input type="text" id="searchWorkInput" placeholder="Buscar por nombre">
+                    <button id="searchWorkBtn">Buscar</button>
+                </div>
+
+                <button id="uploadWorkBtn">Subir Trabajo</button>
+            </div>
+
+            <input type="file" id="workFile" accept="*/*" class="hidden">
+
+            <div id="addWorkForm" class="modal hidden">
+                <div class="modal-content">
+                    <span id="closeWorkForm" style="float:right;cursor:pointer;">&times;</span>
+                    <h3>Agregar nuevo trabajo</h3>
+
+                    <label style="font-weight:bold;">Miniatura del trabajo:</label>
+
+                    <button type="button" id="chooseThumbnailBtn"
+                        style="padding:8px 14px; background:#222; color:white; border:none; border-radius:6px; cursor:pointer; margin-bottom:8px;">
+                        Elegir miniatura
+                    </button>
+
+                    <input type="file" id="thumbnailFile" accept="image/*" style="display:none;">
+
+                    <img id="thumbnailPreview" class="preview hidden"
+                        style="width:100%; max-height:220px; object-fit:cover; border-radius:8px; margin-bottom:12px;">
+
+                    <input type="text" id="workName" placeholder="Nombre del trabajo" required>
+
+                    <div class="price-input">
+                        <span class="currency">S/</span>
+                        <input type="number" id="workPrice" placeholder="Precio" required>
+                    </div>
+
+                    <textarea id="workDescription" placeholder="Descripción del trabajo" required></textarea>
+
+                    <input type="text" id="uploadedBy" style="display:none;">
+
+                    <button id="saveWork">Guardar Trabajo</button>
+                </div>
+            </div>
+
+            <div id="workGallery" class="gallery"></div>
+
+            <div id="workCommentModal" class="modal hidden">
+                <div class="modal-content">
+                    <span id="modalWorkClose" style="cursor:pointer; float:right;">&times;</span>
+
+                    <img id="modalWorkImage" src="" alt="Miniatura del trabajo"
+                        style="width:100%; border-radius:10px; margin-bottom:10px;">
+                    <h3 id="modalWorkName"></h3>
+                    <p id="modalWorkDescription"></p>
+
+                    <button id="descargarArchivoBtn" class="download-btn">
+                        Descargar Archivo
+                    </button>
+                    <h4>Comentarios y Valoraciones</h4>
+                    <div id="workCommentsList"
+                        style="max-height:200px; overflow-y:auto; margin-bottom:10px; border-top:1px solid #ccc; padding-top:5px;">
+                    </div>
+
+                    <textarea id="workCommentInput" placeholder="Escribe un comentario..."
+                        style="width:100%; margin-bottom:5px;"></textarea>
+
+                    <input type="number" id="workRatingInput" min="1" max="5"
+                        placeholder="Del 1 al 5, cuántas ⭐ le das?" style="width:100%; margin-bottom:5px;">
+
+                    <button id="addWorkCommentBtn"
+                        style="width:100%; background:#111; color:white; border:none; padding:10px; border-radius:6px; cursor:pointer;">
+                        Agregar comentario
+                    </button>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2025 Galería Virtual | Todos los derechos reservados</p>
+    </footer>
+
+    <script type="module" src="supabase.js"></script>
+    <script type="module" src="mainsesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
+    <script src="trabajos.js" defer></script>
+
+</body>
+
+</html>
